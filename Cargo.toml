@@ -11,6 +11,11 @@ include = ["/src", "/Cargo.toml", "/README.md"]
 
 [dependencies]
 rquickjs = { git = "https://github.com/DelSkayn/rquickjs" }
+[target.'cfg(not(target_os = "windows"))'.dependencies]
+snmalloc-rs = { version = "0.3", features = [
+  "default",
+  "lto",
+], default-features = false }
 
 [profile.release]
 debug = false

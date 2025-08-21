@@ -4,6 +4,10 @@ fn print(s: String) {
     println!("{s}");
 }
 
+#[cfg(not(target_os = "windows"))]
+#[global_allocator]
+static ALLOC: snmalloc_rs::SnMalloc = snmalloc_rs::SnMalloc;
+
 fn main() -> Result<()> {
     let Some(path) = std::env::args().nth(1) else {
         println!("rquickjs <PATH>");
