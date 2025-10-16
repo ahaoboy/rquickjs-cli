@@ -10,7 +10,9 @@ authors = ["ahaoboy"]
 include = ["/src", "/Cargo.toml", "/README.md"]
 
 [dependencies]
-rquickjs = { git = "https://github.com/DelSkayn/rquickjs" }
+rquickjs = { git = "https://github.com/DelSkayn/rquickjs", features = [
+  "bindgen",
+] }
 [target.'cfg(all(not(target_os = "windows"), not(target_os = "android"), not(target_env = "musl")))'.dependencies]
 snmalloc-rs = { version = "0.3", features = [
   "default",
