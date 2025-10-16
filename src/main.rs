@@ -4,7 +4,11 @@ fn print(s: String) {
     println!("{s}");
 }
 
-#[cfg(all(not(target_os = "windows"), not(target_env = "musl")))]
+#[cfg(all(
+    not(target_os = "windows"),
+    not(target_os = "android"),
+    not(target_env = "musl")
+))]
 #[global_allocator]
 static ALLOC: snmalloc_rs::SnMalloc = snmalloc_rs::SnMalloc;
 
