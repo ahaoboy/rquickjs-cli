@@ -1,4 +1,4 @@
-use rquickjs::{Context, Function, Result, Runtime, context::EvalOptions};
+use rquickjs_core::{Context, Function, Result, Runtime, context::EvalOptions};
 
 fn print(s: String) {
     println!("{s}");
